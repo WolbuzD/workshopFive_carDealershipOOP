@@ -87,6 +87,16 @@ public class Dealership {
         return result;
     }
 
+    public Vehicle getVehicleByVin(int vin) {
+        for (Vehicle v : inventory) {
+            if (v.getVin() == vin) {
+                return v;
+            }
+        }
+        return null; // Not found
+    }
+
+
     public String getName() { return name; }
     public String getAddress() { return address; }
     public String getPhone() { return phone; }
