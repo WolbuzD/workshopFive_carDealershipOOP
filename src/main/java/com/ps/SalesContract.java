@@ -8,13 +8,21 @@ public class SalesContract extends Contract {
         this.isFinanced = isFinanced;
     }
 
+    public double getSalesTax() {
+        return getVehicle().getPrice() * 0.05;
+    }
+
+    public double getRecordingFee() {
+        return 100;
+    }
+
+    public double getProcessingFee() {
+        return getVehicle().getPrice() < 10000 ? 295 : 495;
+    }
+
     @Override
     public double getTotalPrice() {
-        double basePrice = getVehicle().getPrice();
-        double tax = basePrice * 0.05;
-        double recordingFee = 100;
-        double processingFee = basePrice < 10000 ? 295 : 495;
-        return basePrice + tax + recordingFee + processingFee;
+        return getVehicle().getPrice() + getSalesTax() + getRecordingFee() + getProcessingFee();
     }
 
     @Override

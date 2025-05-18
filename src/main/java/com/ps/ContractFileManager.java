@@ -3,7 +3,6 @@ package com.ps;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 public class ContractFileManager {
     private final String filePath = "contracts.csv";
@@ -21,6 +20,9 @@ public class ContractFileManager {
                         .append(sales.getCustomerName()).append("|")
                         .append(sales.getCustomerEmail()).append("|")
                         .append(vehicleDetails(sales.getVehicle())).append("|")
+                        .append(String.format("%.2f", sales.getSalesTax())).append("|")
+                        .append(String.format("%.2f", sales.getRecordingFee())).append("|")
+                        .append(String.format("%.2f", sales.getProcessingFee())).append("|")
                         .append(String.format("%.2f", sales.getTotalPrice())).append("|")
                         .append(sales.isFinanced() ? "YES" : "NO").append("|")
                         .append(String.format("%.2f", sales.getMonthlyPayment()));
@@ -30,7 +32,9 @@ public class ContractFileManager {
                         .append(lease.getCustomerName()).append("|")
                         .append(lease.getCustomerEmail()).append("|")
                         .append(vehicleDetails(lease.getVehicle())).append("|")
-                        .append(String.format("%.2f", lease.getTotalPrice())).append("|")
+                        .append(String.format("%.2f", lease.getEndingValue())).append("|")
+                        .append(String.format("%.2f", lease.getLeaseFee())).append("|")
+                        .append(String.format("%.2f", lease.getTotalLeaseCost())).append("|")
                         .append(String.format("%.2f", lease.getMonthlyPayment()));
             }
 
@@ -42,10 +46,8 @@ public class ContractFileManager {
         }
     }
 
-
     private String vehicleDetails(Vehicle v) {
         return v.getVin() + "|" + v.getYear() + "|" + v.getMake() + "|" + v.getModel() + "|" +
-                v.getVehicleType() + "|" + v.getColor() + "|" + String.format("%.2f", v.getPrice());
+                v.getVehicleType() + "|" + v.getColor() + "|" + v.getOdometer() + "|" + String.format("%.2f", v.getPrice());
     }
 }
-

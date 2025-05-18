@@ -8,20 +8,29 @@ public class LeaseContract extends Contract {
 
     @Override
     public double getTotalPrice() {
-        double originalPrice = getVehicle().getPrice();
-        double endingValue = originalPrice * 0.5;
-        double leaseFee = originalPrice * 0.07;
-        return endingValue + leaseFee;
+        return getEndingValue() + getLeaseFee();
     }
 
     @Override
     public double getMonthlyPayment() {
-        double amount = getTotalPrice();
-        return calculateMonthlyPayment(amount, 0.04, 36);
+        return calculateMonthlyPayment(getTotalPrice(), 0.04, 36);
     }
 
     private double calculateMonthlyPayment(double amount, double interestRate, int months) {
         double monthlyRate = interestRate / 12;
         return (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months));
+    }
+
+    // 🔹 Added helper methods to match file output format
+    public double getEndingValue() {
+        return getVehicle().getPrice() * 0.5;
+    }
+
+    public double getLeaseFee() {
+        return getVehicle().getPrice() * 0.07;
+    }
+
+    public double getTotalLeaseCost() {
+        return getTotalPrice();
     }
 }
