@@ -53,19 +53,19 @@ Ending Value|Lease Fee|Total Lease Obligation|Monthly Payment
 ## 📸 Screenshots
 
 ### 🧭 Main Menu
-![Main Menu](screenshots/main-menu.png)
+![Main Menu](Assets/Menu.png)
 
 ### 🔍 Search by Price
-![Search by Price](screenshots/search-price.png)
+![Search by Price](Assets/FindByPrice.png)
 
 ### ➕ Add Vehicle
-![Add Vehicle](screenshots/add-vehicle.png)
+![Add Vehicle](Assets/AddVehicle.png)
 
 ### 💰 Sale Completed
-![Sales Confirmation](screenshots/sale-confirmation.png)
+![Sales Confirmation](Assets/Contract.png)
 
 ### 📄 Contract Output (CSV)
-![CSV File](screenshots/contracts-file.png)
+![CSV File](Assets/Contracts.png)
 
 ---
 
